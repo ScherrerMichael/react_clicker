@@ -1,14 +1,13 @@
 # run the typescript compiler
 build:
-	tsc
+	yarn run webpack
 
-# run with node
 run: build
-	node dest/main.js
+	xdg-open index.html
 
 # clean the destination dir
 clean:
 	#!/usr/bin/env bash
-	if [[ -d dest/ ]]; then
-		rm dest/*
+	if [[ -d dist/ ]]; then
+		rm dist/*
 	fi
