@@ -1,3 +1,7 @@
+# project
+
+# ignore anything in the dist directory
+dist/*
 
 # Created by https://www.gitignore.io/api/git,vim,node,react
 # Edit at https://www.gitignore.io/?templates=git,vim,node,react

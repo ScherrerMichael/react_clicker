@@ -2,19 +2,18 @@
   "name": "clicker_game",
   "version": "1.0.0",
   "main": "index.js",
+  "repository": "git@github.com:chrisrhayden/react_clicker.git",
   "author": "chris <chrisrhayden@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "@types/node": "^12.12.18",
+  "dependencies":  {
     "@types/react": "^16.9.16",
     "@types/react-dom": "^16.9.4",
-    "@typescript-eslint/eslint-plugin": "^2.12.0",
-    "@typescript-eslint/parser": "^2.12.0",
-    "eslint": "^6.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "source-map-loader": "^0.2.4",
+    "ts-loader": "^6.2.1",
     "typescript": "^3.7.3",
+    "webpack": "^4.41.3",
     "webpack-cli": "^3.3.10"
   }
 }
