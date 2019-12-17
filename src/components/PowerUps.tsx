@@ -46,6 +46,7 @@ class PowerUp {
   }
 }
 
+// this describes the props being passed in from Game
 export interface PowerUpsProps { handleClick: (power: number) => void };
 
 export interface PowerUpsState { power_ups: PowerUpObj };
@@ -59,12 +60,17 @@ export class PowerUps extends React.Component<PowerUpsProps, PowerUpsState> {
     }
   }
 
-  // make a list of <li> tags with the power up names
+  newLi(name: string): JSX.Element {
+    // an anonymous function to keep things short
+    const handleOnClick = (name: string) =>
+      this.props.handleClick(this.state.power_ups[name].power);
+
+    return <li onClick={() => handleOnClick(name)} key={name} >{name}</li>;
+  }
+
   makePowerUpList() {
-    return Object.keys(this.state.power_ups)
-      .map(name => <li onClick={
-        () => this.props.handleClick(this.state.power_ups[name].power)
-      } key={name} >{name}</li>);
+    // return an array of <li> tags made from newLi
+    return Object.keys(this.state.power_ups).map(this.newLi);
   }
 
   render() {
