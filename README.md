@@ -28,6 +28,9 @@ Were also using webpack to build the file js from all the ts file in src
 * open the `index.html` file in a browser
 
 ## project layout
+
+will be out of date
+
 ```
 # the root html, the browser will start here
 index.html
@@ -37,7 +40,9 @@ dist/main.js
 
 # source files
 src/
-├── components     # our react components
-│   └── Game.tsx   # the entry point for our game
-└── index.tsx      # the root of the project, Game will be sourced here
+├── components        # our react components
+│   ├── Clicker.tsx   # the main clicker, where the clicker html lives
+│   ├── Game.tsx      # the entry point for our game
+│   └── PowerUps.tsx  # the main power up logic
+└── index.tsx         # the root of the project, Game will be sourced here
 ```
