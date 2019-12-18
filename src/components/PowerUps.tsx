@@ -10,7 +10,7 @@ type PowerUpObj = {[index: string]: PowerUp};
 function make_power_ups(): PowerUpObj {
   // set up a few basic power us to try out
   const power_ups = [
-    ['1', 'basick', 'the first power up'],
+    ['1', 'basic', 'the first power up'],
     ['10', 'more power', 'another power up'],
   ];
 
@@ -30,7 +30,6 @@ function make_power_ups(): PowerUpObj {
 }
 
 // a basic power up object
-// export class PowerUp {
 class PowerUp {
   // this is for typescript, like declaring a class in c++
   name: string;
@@ -60,20 +59,17 @@ export class PowerUps extends React.Component<PowerUpsProps, PowerUpsState> {
     }
   }
 
-  newLi(name: string): JSX.Element {
-    // an anonymous function to keep things short
-    const handleOnClick = (name: string) =>
-      this.props.handleClick(this.state.power_ups[name].power);
+  makePowerUpList(): JSX.Element[] {
+    const new_li = (name: string) => <li onClick={
+      () => this.props.handleClick(this.state.power_ups[name].power)
+    } key={name} >{name}</li>;
 
-    return <li onClick={() => handleOnClick(name)} key={name} >{name}</li>;
-  }
-
-  makePowerUpList() {
     // return an array of <li> tags made from newLi
-    return Object.keys(this.state.power_ups).map(this.newLi);
+    return Object.keys(this.state.power_ups).map(new_li);
   }
 
   render() {
+
     // return a ordered list with the li tags made from the makePowerUpList
     return (
       <ol>

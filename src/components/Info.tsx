@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+// this describes the props being passed in from Game
 export interface InfoProps { user_score: number, click_power: number };
 
 /** basic info
