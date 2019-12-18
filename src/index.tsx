@@ -5,6 +5,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
+// import the game logic
 import { Game } from './components/Game';
 
 // call react to render the game to main-game, the empty div in ./index.html

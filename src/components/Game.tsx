@@ -6,7 +6,7 @@ import { PowerUps } from './PowerUps';
 import { Info } from './Info';
 
 // let typescript know the shape of the state object we will use
-interface GameState {user_score: number, click_power: number};
+interface GameState {userScore: number, clickPower: number};
 
 // a class that will store our data and wrap all the other tags and components
 export class Game extends React.Component<{}, GameState> {
@@ -18,8 +18,8 @@ export class Game extends React.Component<{}, GameState> {
 
     // set the state to beginning values
     this.state = {
-      user_score: 0,
-      click_power: 1,
+      userScore: 0,
+      clickPower: 1,
     }
 
   }
@@ -32,30 +32,44 @@ export class Game extends React.Component<{}, GameState> {
    */
   handleClickerClick = (): void => {
     // increment the click score by the click power
-    const new_total = this.state.user_score + this.state.click_power;
+    const new_total = this.state.userScore + this.state.clickPower;
 
     // set state to the new value, new_total will replace user_score's value
-    this.setState({user_score: new_total});
+    this.setState({userScore: new_total});
   }
 
-  handlePowerUpClick = (new_power: number): void => {
-    const power = this.state.click_power + new_power;
+  handlePowerUpClick = (newPower: number): void => {
+    const power = this.state.clickPower + newPower;
 
-    this.setState({click_power: power});
+    this.setState({clickPower: power});
   }
 
   /** a function to render these components */
   render(): JSX.Element {
     // to keep everything under 80 chars and more readable
-    const user_score = this.state.user_score;
-    const click_power = this.state.click_power;
+    const userScore = this.state.userScore;
+    const clickPower = this.state.clickPower;
 
-    // render is a function to return out what we want to render
-    // wrap the components in a div as react expects render to return only
-    // one tag (this pattern of wrapping things in a div is used a lot in react)
+    /** render the game logic
+     *
+     * the class's are react components,
+     * meaning we can use them in jsx like <Game />
+     *
+     * we can pass data like html property's or rather key=value
+     * if we want to include javascript use {}, most often used for variables
+     *
+     * e.g.
+     * <div>
+     *   <Info user_score={this.state.user_score} />
+     * </div>
+     *
+     * wrap the components in a div as react expects render to return only
+     * one tag (this pattern of wrapping things in a div is used a lot in react)
+     *
+     */
     return (
       <div id='game-logic'>
-        <Info user_score={user_score} click_power={click_power} />
+        <Info userScore={userScore} clickPower={clickPower} />
         <PowerUps handleClick={this.handlePowerUpClick} />
         <Clicker handleClick={this.handleClickerClick} />
       </div>

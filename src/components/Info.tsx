@@ -1,7 +1,26 @@
 import * as React from 'react';
 
 // this describes the props being passed in from Game
-export interface InfoProps { user_score: number, click_power: number };
+export interface InfoProps { userScore: number, clickPower: number };
+
+/** style takes an object that corresponds to css
+ * p {
+ *   font-style: bold;
+ *   font-color: green;
+ * }
+ *
+ ** corresponds to
+ *
+ * const fontObj = {
+ *   fonWeight: 700,
+ *   color: 'green'
+ * }
+ * <p style={fontObj}>words</p>
+ */
+const fontStyle = {
+  fontWeight: 700,  // bold
+  color: '#00ff00', // green
+};
 
 /** basic info
  *
@@ -11,6 +30,5 @@ export interface InfoProps { user_score: number, click_power: number };
  *
  * this can be refactored into a class when we want more things
  */
-
 export const Info = (props: InfoProps) =>
-  <p>you have {props.user_score} with {props.click_power} click power</p>;
+  <p style={fontStyle}>you have {props.userScore} with {props.clickPower} click power</p>;
